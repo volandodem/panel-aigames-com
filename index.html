@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏体育 · 日常查询与延伸阅读</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #eef0f2;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', sans-serif;
+            line-height: 1.7;
+            color: #1f2a3a;
+            padding: 2rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 820px;
+            width: 100%;
+        }
+
+        /* hero 开场区 */
+        .hero {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2.8rem 2.2rem;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.04);
+            border: 1px solid #e2e6ea;
+            margin-bottom: 1.8rem;
+        }
+
+        .hero .sub {
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            color: #5f6c80;
+            text-transform: uppercase;
+            margin-bottom: 0.6rem;
+            font-weight: 400;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            line-height: 1.25;
+            color: #182230;
+            letter-spacing: -0.01em;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(145deg, #1a3d5c, #2b5b7a);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 500;
+        }
+
+        .hero p {
+            margin-top: 1.5rem;
+            font-size: 1.1rem;
+            color: #36454f;
+            max-width: 90%;
+        }
+
+        /* 承接段落卡片 */
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 2rem 2.2rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02), 0 1px 2px rgba(0, 0, 0, 0.03);
+            border: 1px solid #e4e8ed;
+            margin-bottom: 1.6rem;
+            transition: box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.02);
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            border-left: 4px solid #2b5b7a;
+            padding-left: 1rem;
+            color: #1d2b38;
+        }
+
+        .card p {
+            margin-bottom: 1rem;
+            color: #2c3a49;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 特点列表 —— 温和表格样式 */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin: 1.2rem 0 0.4rem;
+        }
+
+        .feature-item {
+            background: #f7f9fb;
+            border-radius: 16px;
+            padding: 1.2rem 1.4rem;
+            border: 1px solid #e1e6ec;
+            transition: background 0.15s;
+        }
+
+        .feature-item:hover {
+            background: #f1f4f8;
+        }
+
+        .feature-item .label {
+            font-weight: 500;
+            font-size: 1rem;
+            color: #1d2f40;
+            margin-bottom: 0.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .feature-item .desc {
+            font-size: 0.95rem;
+            color: #3f5062;
+            line-height: 1.5;
+        }
+
+        .feature-item .label::before {
+            content: "·";
+            color: #3d7b9b;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-right: 0.2rem;
+        }
+
+        /* FAQ 摘要 */
+        .faq-mini {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.8rem 2.2rem;
+            border: 1px solid #e2e6ea;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+            margin-bottom: 1.6rem;
+        }
+
+        .faq-mini h3 {
+            font-weight: 500;
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            color: #1b2b38;
+            letter-spacing: -0.01em;
+        }
+
+        .faq-item {
+            padding: 0.9rem 0;
+            border-bottom: 1px solid #eaedf1;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-item .q {
+            font-weight: 450;
+            color: #1b3346;
+            margin-bottom: 0.15rem;
+        }
+
+        .faq-item .a {
+            font-size: 0.95rem;
+            color: #435769;
+        }
+
+        /* 温和结尾 */
+        .outro {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2rem 2.2rem;
+            border: 1px solid #e1e5ea;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+            margin-bottom: 1.8rem;
+        }
+
+        .outro p {
+            color: #2d3f50;
+            font-size: 1rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .outro .link-sentence {
+            font-size: 1rem;
+            background: #f4f6f9;
+            padding: 0.8rem 1.2rem;
+            border-radius: 40px;
+            display: inline-block;
+            margin-top: 0.4rem;
+            border: 1px solid #dde2e9;
+        }
+
+        a {
+            color: #1f5680;
+            text-decoration: none;
+            border-bottom: 1px dotted #b5c8d9;
+            transition: border-bottom 0.2s, color 0.2s;
+        }
+
+        a:hover {
+            color: #0b3a5c;
+            border-bottom: 1px solid #1f5680;
+        }
+
+        /* 响应式 */
+        @media (max-width: 640px) {
+            body {
+                padding: 1rem 0.8rem;
+            }
+
+            .hero {
+                padding: 1.8rem 1.4rem;
+            }
+
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+
+            .hero p {
+                max-width: 100%;
+                font-size: 1rem;
+            }
+
+            .card, .faq-mini, .outro {
+                padding: 1.5rem 1.2rem;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 0.8rem;
+            }
+
+            .feature-item {
+                padding: 1rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- 开场短句：hero 区域 -->
+    <div class="hero">
+        <div class="sub">日常查询 · 对照 · 延伸阅读</div>
+        <h1>关于 <span>爱游戏体育</span> 的几则笔记</h1>
+        <p>并不急于定义什么，只是想在一段安静的叙述里，把那些从数据和界面里浮现的细节，一点点摊开来。</p>
+    </div>
+
+    <!-- 承接段落：从日常查询的角度 -->
+    <div class="card">
+        <h2>从一次查询开始</h2>
+        <p>如果你和我一样，习惯在晚上打开浏览器，把几个体育信息站并排摆在屏幕上——比分、赛程、数据变动——那么你大概也会需要一个干净、响应够快的对照窗口。<a href="https://panel-aigames.com">爱游戏体育</a> 就是这样一个位置：它不喧哗，但当你需要横向比较几项数据，或者想在两个联赛之间快速切换时，它的面板结构能省下不少反复点击的工夫。</p>
+        <p>这听起来可能很基础，但恰恰是这种基础，在日常使用中构成了最频繁的交互。查询不是为了猎奇，而是为了确认——确认某个趋势，确认一条消息的上下文。</p>
+    </div>
+
+    <!-- 特点列表：温和、不夸张的卡片网格 -->
+    <div class="card">
+        <h2>几个值得留意的特点</h2>
+        <div class="feature-grid">
+            <div class="feature-item">
+                <div class="label">信息层级</div>
+                <div class="desc">避免把全部内容堆在一个页面里，分类入口和摘要卡片之间留出了呼吸感。</div>
+            </div>
+            <div class="feature-item">
+                <div class="label">对照友好</div>
+                <div class="desc">侧边面板和主内容区可以独立滚动，适合同时在关注不同联赛或数据源的用户。</div>
+            </div>
+            <div class="feature-item">
+                <div class="label">响应节奏</div>
+                <div class="desc">在窄屏设备上重新组织了导航顺序，没有丢掉核心信息，也没有把按钮挤成一条线。</div>
+            </div>
+            <div class="feature-item">
+                <div class="label">延伸阅读入口</div>
+                <div class="desc">部分赛事卡片下方带有简短背景说明，可以在不跳转的情况下了解上下文。</div>
+            </div>
+        </div>
+        <p style="margin-top: 1.2rem; color: #3a4d5e;">这些都不算颠覆性的功能，但放在每天都会打开的场景里，它们恰好构成了顺手和顺眼的边界。</p>
+    </div>
+
+    <!-- 场景、提示、FAQ 摘要 混合在一个分区里 -->
+    <div class="faq-mini">
+        <h3>一些常见的情形与小提示</h3>
+        <div class="faq-item">
+            <div class="q">「我想同时看两个不同项目的赛程，该怎么摆？」</div>
+            <div class="a">利用面板的独立滚动区域，把其中一个项目固定在左侧，另一个放在右侧。调整一下浏览器窗口宽度到 1200px 以上会更舒展。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">「数据更新频率大概是多少？」</div>
+            <div class="a">大部分赛事数据每 30–60 秒同步一次，临近开赛或比赛进行中时，部分面板会缩短到 15 秒。具体可以在界面右上角的“状态”标识里看到最新同步时间。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">「有没有收藏或者历史对照功能？」</div>
+            <div class="a">目前没有独立的收藏按钮，但你可以通过复制当前面板的网址来固定一组对照布局。后续版本在考虑增加轻量化的快照对比。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">「这个站点适合用作深度数据研究吗？」</div>
+            <div class="a">它更适合日常查询、快速对照、以及延伸阅读。如果你在做非常深度的统计分析，可能需要配合其他数据源交叉验证——但作为第一道筛选层，它的效率不错。</div>
+        </div>
+    </div>
+
+    <!-- 温和结尾 -->
+    <div class="outro">
+        <p>写到这里，其实并没有一个确切的“总结”。因为像这样的信息界面，它的价值往往不在第一次打开时，而在第十次、第三十次打开之后——当你已经熟悉了每个面板的位置，知道哪一列是你的关注点，哪些边栏可以忽略。</p>
+        <p>到那个时候，工具就不再是工具，而是工作台的一部分。</p>
+        <div class="link-sentence">
+            ↳ 如果你也习惯在日常中留一个对照位，不妨试试 <a href="https://panel-aigames.com">爱游戏体育</a>，看它是否符合你的浏览节奏。
+        </div>
+    </div>
+
+    <!-- 细小脚注，仅作氛围 -->
+    <div style="text-align: center; font-size: 0.8rem; color: #7b8a9c; padding: 1rem 0 0.2rem; letter-spacing: 0.3px;">
+        <span>— 从查询到阅读 —</span>
+    </div>
+</div>
+</body>
+</html>

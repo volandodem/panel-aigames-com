@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://volandodem.github.io/panel-aigames-com/sitemap.xml
